@@ -17,14 +17,83 @@
             #logo {
                 outline-style: dashed
             }
+            #darkModeButton {
+                border-color: black;
+                border-style: groove;
+            }
+            #cycleButton {
+                border-color: black;
+                border-style: groove;
+            }
         </style>
     </head>
     <body>
         <h3><i>My Webpage.</i></h3>
         <h6><ul>By Spencer.</ul></h6>
-        <img id= "logo" src= "logo.jpg" width= 50% alt="An aerial view of the building of a city">
+        <button type="button" id="darkModeButton" onclick="darkMode()">Dark Mode</button>
+        <br><br>
+        <img id= "logo" src= "wheelRed.png" width= 15% alt="An aerial view of the building of a city">
         <br>
+        <button type = "button" id="cycleButton" onclick="wheelChange()">Cycle the Wheel!</button>
         <p id="para1"><b>Look at that cool image. It's all black and blue.</b></p>
         <p id="para2">Wow it's so cool.<br>I thought it was a circuit board or something but it is actually a city.<br>The more you look at it, the more you see it.</p>
     </body>
+    <script>
+        let dark = 0;
+        let wheelCycle = 0;
+        function darkMode(){
+            if (dark == 0) {
+                dark = 1;
+                document.getElementById("darkModeButton").innerText ="Light Mode";
+                document.getElementById("darkModeButton").style.backgroundColor="black";
+                document.getElementById("darkModeButton").style.color="white";
+                document.getElementById("darkModeButton").style.borderColor="white";
+                document.getElementById("cycleButton").style.backgroundColor="black";
+                document.getElementById("cycleButton").style.color="white";
+                document.getElementById("cycleButton").style.borderColor="white";
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+                document.getElementById("para2").style.backgroundColor = "darkslategrey";
+            }
+            else {
+                dark = 0;
+                document.getElementById("darkModeButton").innerText="Dark Mode";
+                document.getElementById("darkModeButton").style.backgroundColor="white";
+                document.getElementById("darkModeButton").style.color="black";
+                document.getElementById("darkModeButton").style.borderColor="black";
+                document.getElementById("cycleButton").style.backgroundColor="white";
+                document.getElementById("cycleButton").style.color="black";
+                document.getElementById("cycleButton").style.borderColor="black";
+                document.body.style.backgroundColor = "dodgerblue";
+                document.body.style.color = "black";
+                document.getElementById("para2").style.backgroundColor = "black";
+            }
+        }
+        function wheelChange(){
+            if((wheelCycle + 1) >= 6){
+                wheelCycle = 0
+            }
+            else{
+                wheelCycle += 1
+            }
+            if(wheelCycle == 0){
+                document.getElementById("logo").src = "wheelRed.png"
+            }
+            if(wheelCycle == 1){
+                document.getElementById("logo").src = "wheelOrange.png"
+            }
+            if(wheelCycle == 2){
+                document.getElementById("logo").src = "wheelYellow.png"
+            }
+            if(wheelCycle == 3){
+                document.getElementById("logo").src = "wheelGreen.png"
+            }
+            if(wheelCycle == 4){
+                document.getElementById("logo").src = "wheelBlue.png"
+            }
+            if(wheelCycle == 5){
+                document.getElementById("logo").src = "wheelPurple.png"
+            }
+        }
+    </script>
 </html>
